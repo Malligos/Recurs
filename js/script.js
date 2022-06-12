@@ -1,6 +1,6 @@
 'use strict';
 
-let student = {
+let students = {
     js: [{
         name: 'Jone',
         progress: 100
@@ -23,4 +23,32 @@ let student = {
         }]
     }
 };
+
+
+function getTotalProgressByIteration(data){
+    let total = 0;
+    let students = 0;
+
+    for (let course of Object.values(data)){
+        if (Array.isArray(course)) {
+            students += course.length;
+            
+            for (let i = 0; i < course.length; i++){
+                total += course[i].progress;
+            }
+        } else {
+            for (let suBcourse of Object.values(course)){
+                students += suBcourse.length;
+
+                for (let i = 0; i < suBcourse.length; i++){
+                    total += suBcourse[i].progress;
+                }
+            }
+        }
+    }
+
+    return total / students;
+}
+
+console.log(getTotalProgressByIteration(students));
 
