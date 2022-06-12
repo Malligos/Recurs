@@ -65,7 +65,7 @@ function getTotalProgressByRecurtion(data) {
             total += data[i].progress;
         }
 
-        return [total. data.length];
+        return [total, data.length];
 
     } else {
         let total = [0, 0];
